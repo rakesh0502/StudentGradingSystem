@@ -20,22 +20,23 @@ public class Main {
 		 
 		JComboBox<Integer> memberOptions = new JComboBox<Integer>(members);
 		memberOptions.setBounds(150, 20, 50, 30);
-		//final JTextField text = new JTextField();
-		//text.setBounds(150, 20, 50, 30);
+		JCheckBox alreadyGraded = new JCheckBox("Previously Graded");  
+		alreadyGraded.setBounds(300, 20, 200,80);
 		f.add(l1);
 		f.add(label);
 		f.add(b);
 		f.add(memberOptions);
+		f.add(alreadyGraded);
 		f.setSize(300, 300);
 		f.setLayout(null);
 		f.setVisible(true);
-		memberOptions.addActionListener(new ActionListener() {
+		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//String data = "Members " + text.getText();
-				JComboBox<Integer> memberOptions = (JComboBox<Integer>)e.getSource();
 				int n = (Integer) memberOptions.getSelectedItem();
-				System.out.println("Number entered: "+n);
-				label.setText("Number entered: "+n);
+			
+				boolean graded = alreadyGraded.isSelected();
+				System.out.println("Number entered: "+n+"  Previously Graded: "+graded);
+				label.setText("Number entered: "+n+"  Previously Graded: "+graded);
 			}
 		});
 	}
