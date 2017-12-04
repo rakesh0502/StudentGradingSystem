@@ -67,21 +67,6 @@ public class Main {
 	 * */
 	static double[] doNormalization(int[] professionalism,int[] meetingParticipation,int[] workEvaluation, int totalStudents) {
 		
-		System.out.print("professionalism :::");
-		for(int i=0;i<professionalism.length;i++) {
-			System.out.print(professionalism[i] + " ") ;
-		}
-		System.out.println();
-		System.out.print("meetingParticipation :::");
-		for(int i=0;i<meetingParticipation.length;i++) {
-			System.out.print(meetingParticipation[i] + " ") ;
-		}
-		System.out.println();
-		System.out.print("workEvaluation :::");
-		for(int i=0;i<workEvaluation.length;i++) {
-			System.out.print(workEvaluation[i] + " ") ;
-		}
-		System.out.println();
 		//normalizedScore array
 		double[] normalizedScore = new double[totalStudents];
 		double maxScore = 0;
@@ -105,7 +90,6 @@ public class Main {
 			}
 		}
 		
-		System.out.print("MaxScore = "+ maxScore + "\n");
 		
 		//step 2: do normalization for each student and assign it to normalizedScore array
 		for(int i=0;i<totalStudents;i++) {
@@ -113,7 +97,6 @@ public class Main {
 			normalizedScore[i] = professionalism[i] + meetingParticipation[i] + workEvaluation[i];
 		}
 		
-		System.out.println("ormalizedScore.length = "+ normalizedScore.length);
 		for(int i=0;i<normalizedScore.length;i++) {
 			normalizedScore[i] /= maxScore; 
 		}
