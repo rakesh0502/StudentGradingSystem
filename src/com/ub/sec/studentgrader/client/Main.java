@@ -32,6 +32,7 @@ public class Main {
 			}
 		});
 		
+	
 		int[] professionalism  = {5,4,5,1,2};
 		int[] meetingParticipation  = {5,4,5,1,2};
 		int[] workEvaluation  = {5,4,5,1,2};
@@ -66,9 +67,24 @@ public class Main {
 	 * */
 	static double[] doNormalization(int[] professionalism,int[] meetingParticipation,int[] workEvaluation, int totalStudents) {
 		
+		System.out.print("professionalism :::");
+		for(int i=0;i<professionalism.length;i++) {
+			System.out.print(professionalism[i] + " ") ;
+		}
+		System.out.println();
+		System.out.print("meetingParticipation :::");
+		for(int i=0;i<meetingParticipation.length;i++) {
+			System.out.print(meetingParticipation[i] + " ") ;
+		}
+		System.out.println();
+		System.out.print("workEvaluation :::");
+		for(int i=0;i<workEvaluation.length;i++) {
+			System.out.print(workEvaluation[i] + " ") ;
+		}
+		System.out.println();
 		//normalizedScore array
 		double[] normalizedScore = new double[totalStudents];
-		int maxScore = 0;
+		double maxScore = 0;
 		  
 		//TestCase #1 : check of all evaluations array have same lengths
 		if(professionalism.length != totalStudents && meetingParticipation.length != totalStudents && workEvaluation.length != totalStudents) {
@@ -93,9 +109,15 @@ public class Main {
 		
 		//step 2: do normalization for each student and assign it to normalizedScore array
 		for(int i=0;i<totalStudents;i++) {
-			System.out.println(professionalism[i] + meetingParticipation[i] + workEvaluation[i] + " " + i + "\n");
-			normalizedScore[i] = professionalism[i] + meetingParticipation[i] + workEvaluation[i]  / maxScore * 10;
+			//System.out.println(professionalism[i] + meetingParticipation[i] + workEvaluation[i] + " " + i + "\n");
+			normalizedScore[i] = professionalism[i] + meetingParticipation[i] + workEvaluation[i];
 		}
+		
+		System.out.println("ormalizedScore.length = "+ normalizedScore.length);
+		for(int i=0;i<normalizedScore.length;i++) {
+			normalizedScore[i] /= maxScore; 
+		}
+		
 		return normalizedScore;
 	}
 	
