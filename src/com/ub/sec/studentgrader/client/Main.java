@@ -67,16 +67,18 @@ public class Main {
 	 * */
 	static double[] doNormalization(int[] professionalism,int[] meetingParticipation,int[] workEvaluation, int totalStudents) {
 		
-		//normalizedScore array
+		//normalizedScore array to be returned 
 		double[] normalizedScore = new double[totalStudents];
+		
+		//variable for maximum store obtained by a student
 		double maxScore = 0;
 		  
-		//TestCase #1 : check of all evaluations array have same lengths
+		//check of all evaluations array have same lengths
 		if(professionalism.length != totalStudents && meetingParticipation.length != totalStudents && workEvaluation.length != totalStudents) {
 			return null;
 		}
 		
-		//TestCase #2 : Negative values in any of 3 scores array
+		//Negative values in any of 3 scores array
 		for(int i=0;i<totalStudents;i++) {
 			if(professionalism[i] < 0 || meetingParticipation[i] < 0 || workEvaluation[i] < 0) {
 				return null;
@@ -97,6 +99,7 @@ public class Main {
 			normalizedScore[i] = professionalism[i] + meetingParticipation[i] + workEvaluation[i];
 		}
 		
+		//dividing values inside normalizedScore array by maxScore to make it in between 0 & 1
 		for(int i=0;i<normalizedScore.length;i++) {
 			normalizedScore[i] /= maxScore; 
 		}
