@@ -25,6 +25,5 @@ public class NormalizeTest {
 			double[] result = instance.doNormalization(professionalism, meetingParticipation, workEvaluation, totalStudents);
 			assertEquals(expectedResultLength, result.length);
 
-//		    assertEquals(Color.BLUE, instance.getLabelColor());
 		  }
 }
